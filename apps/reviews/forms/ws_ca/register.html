@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Wholesale Account Sign Up</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
+<script src="https://www.google.com/recaptcha/api.js"></script>
+             <style type="text/css">body { color: #292F33; font-size: 14px; line-height: 18px; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+	
+	.page-canvas { margin: 0 auto; width: 95%; }
+	.title {padding: 20px 0;  text-align: center}
+	.form-wrapper {margin: 0 auto; width:80%; max-width: 888px;  border-radius: 6px; border: 1px solid rgba(0, 0, 0, 0.1); } 
+	.signup-wrapper { margin: 0 auto 10px; clear:both; display:block; width:80%;max-width: 585px;}
+	.signup-wrapper form { padding: 10px 0; font-size: 12px; margin-bottom: 0} 
+	.signup-wrapper div.w_50 { width: 50%; float:left; margin-bottom: 15px }
+	.signup-wrapper div.full { width: 100%; margin-bottom: 15px; clear:both}
+	.signup-wrapper div.w_80 { width: 80%; margin-bottom: 15px;  float:left;}
+	.signup-wrapper div.w_70 { width: 70%; margin-bottom: 15px;  float:left;}
+	.signup-wrapper div.w_20 { width: 20%; margin-bottom: 15px;  float:left;}
+	.signup-wrapper div.w_60 { width: 60%; margin-bottom: 15px;  float:left;}
+	.signup-wrapper div.w_40 { width: 40%; margin-bottom: 15px;  float:left;}
+	.signup-wrapper div.w_30 { width: 30%; margin-bottom: 15px;  float:left;}
+	.signup-wrapper form {display: block}
+	.signup-wrapper form label {display:block; color: #292F33; font-size: 14px;font-weight: bold; margin-bottom: 3px; cursor: pointer;}
+	.signup-wrapper form .textbox { width: 158px; transition: background 0.2s linear 0s;  background-color: #FFFFFF;border: 1px solid #E1E8ED;border-radius: 3px;display: inline-block;margin: 0;outline: 0 none;padding: 4px;font-size: 13px;line-height: 20px;}
+	.signup-wrapper form .textbox_full { width: 334px;}
+	.signup-wrapper form .textbox_short { width: 100px;}
+	.signup-wrapper form input{color: #888;}
+	.signup-wrapper form input.button{ background-color: #FFEC46;background-image: linear-gradient(#FFEC46, #FFAA22);	background-repeat: repeat-x;border-color: #FD9D00;	color: #292F33;font-weight: bold; margin: 0;	padding: 7px 0;width: 300px;}
+	.signup-wrapper form input:focus, .signup-wrapper form textarea:focus { color: #292F33; border-color:#56B4EF;  }
+	.signup-wrapper h1 { font-size: 28px; line-height:25px; font-weight: bold; padding: 20px 0}
+
+	@media (max-width: 800px) {
+	  .signup-wrapper div.w_50 { float:none }
+		.signup-wrapper div.full { float:none}
+		.signup-wrapper div.w_80 { float:none}
+		.signup-wrapper div.w_70 { float:none}
+		.signup-wrapper div.w_20 { float:none}
+		.signup-wrapper div.w_60 { float:none}
+		.signup-wrapper div.w_40 { float:none}
+		.signup-wrapper div.w_30 { float:none}
+	}
+
+	@media (max-width: 600px) {
+	  .form-wrapper { width: 100% }
+		.signup-wrapper { width: 95%}
+		.signup-wrapper form .textbox_full { width: 100%}
+	}
+
+
+</style>
+
+<script type="text/javascript">
+
+
+// Form validation code will come here.
+function validate()
+{
+
+
+if( document.myForm.website.value != "" )
+   {
+     var myRegExp =/^((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})/;
+     var s = document.myForm.website.value;
+     s = s.replace(/.*?:\/\//g, "");
+     if (!myRegExp.test(s)){
+          alert( "Invalid website address!" );
+          document.myForm.website.focus() ;
+          return false;
+     }
+   }
+if( document.myForm.website.value != "" ) document.myForm.website.value = document.myForm.website.value.replace(/.*?:\/\//g, "");
+
+   if( document.myForm.firstname.value == "" )
+   {
+     alert( "Please provide your first name!" );
+     document.myForm.firstname.focus() ;
+     return false;
+   }
+   if( document.myForm.lastname.value == "" )
+   {
+     alert( "Please provide your last name!" );
+     document.myForm.lastname.focus() ;
+     return false;
+   }
+
+
+	if( document.myForm.address.value == "" )
+   {
+     alert( "Please provide your address!" );
+     document.myForm.address.focus() ;
+     return false;
+   }
+
+	if( document.myForm.City.value == "" )
+   {
+     alert( "Please provide your city!" );
+     document.myForm.City.focus() ;
+     return false;
+   }
+
+	if( document.myForm.Province.value == "" )
+   {
+     alert( "Please provide your province!" );
+     document.myForm.province.focus() ;
+     return false;
+   }
+	
+	if( document.myForm.postalcode.value == "" )
+   {
+     alert( "Please provide your postal code!" );
+     document.myForm.postalcode.focus() ;
+     return false;
+   }else{
+		var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXYZ]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
+		if (!regex.test(document.myForm.postalcode.value)){
+                         alert( "Invalid postal code!" );
+			document.myForm.postalcode.focus() ;
+	     	return false;
+		}
+	}
+
+
+	if( document.myForm.phone.value == "" )
+   {
+     alert( "Please provide business phone number!" );
+     document.myForm.phone.focus() ;
+     return false;
+   }
+
+	if( document.myForm['mphone'].value == "" )
+   {
+     alert( "Please provide mobile phone number!" );
+     document.myForm['mphone'].focus() ;
+     return false;
+   }
+
+
+	if( document.myForm.email.value == "" )
+   {
+     alert( "Please provide your email!" );
+     document.myForm.email.focus() ;
+     return false;
+   }
+
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if(!re.test(document.myForm.email.value)){
+	  alert( "Email address is not valid!" );
+     document.myForm.email.focus() ;
+     return false;
+	}
+	if( document.myForm.bustype.options[document.myForm.bustype.selectedIndex].value == "" )
+   {
+     alert( "Please provide type of business!" );
+     document.myForm.bustype.focus() ;
+     return false;
+   }
+
+
+if( document.myForm.website.value != "" )
+   {
+     var myRegExp =/^((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$/;
+     var s = document.myForm.website.value;
+     s = s.replace(/.*?:\/\//g, "");
+     if (!myRegExp.test(s)){
+          alert( "Invalid website address!" );
+          document.myForm.website.focus() ;
+          return false;
+     }
+   }
+  /*
+  if( parseInt(document.myForm.cal.value ) != (num1 + num2))
+   {
+     alert( "Please enter a correct answer" );
+     document.myForm.cal.focus() ;
+     return false;
+   }	
+*/
+	document.myForm.postalcode.value = document.myForm.postalcode.value.replace(/\s/g, '');
+
+ if( document.myForm.website.value != "" ) document.myForm.website.value = document.myForm.website.value.replace(/.*?:\/\//g, "");
+
+   return( true );
+}
+
+var nums = [1,2,3,4,5];
+var num1 = nums[Math.floor(Math.random()*nums.length)];
+var num2 = nums[Math.floor(Math.random()*nums.length)];
+
+
+
+
+
+
+jQuery(function(){
+	jQuery('form[name="myForm"]').submit(function(e){
+
+		e.preventDefault();
+		if(validate()){
+			jQuery("#signup_submit").hide();
+                        jQuery("#processing").show();
+			jQuery.ajax({
+					type: "POST",
+					url: "../ws_ca/submit",
+					data: jQuery(this).serialize(),
+					success: function(response){
+						switch(response){
+							case '1':
+										window.location.href= "../ws_ca/done";
+										break;
+							case '2':
+										alert("Customer record already exists.");
+										jQuery("#signup_submit").show();
+										break;
+							case '3':
+										alert("Invalid or unsupported email address.");
+										jQuery("#signup_submit").show();
+										break;
+							case '5':
+								alert("Please identify you are not a robot.");
+								jQuery("#signup_submit").show();
+								break;
+							case '4':
+									default:
+                                                                                jQuery("#processing").hide();
+										jQuery("#signup_submit").show();
+										alert("Failed to submit your application.");
+							
+						}
+                                                jQuery("#processing").hide();
+                                                grecaptcha.reset();
+					},
+					dataType: 'text'
+					});
+								
+		}
+
+		return false;
+	});
+});
+
+
+</script> 
+</head>
+<body class="page-empty  cms-page-view cms-signup">
+    <div>
+
+</div>
+     
+<div class="std"><!--{MESSAGES_3f9737c153d854d9f0c5395ce4cdb394}--><!--/{MESSAGES_3f9737c153d854d9f0c5395ce4cdb394}-->
+	<div class="page-canvas title">
+		<a href="../../../../index.html"><img src="https://www.pinkcherrywholesale.ca/apps/reviews/images/ws_ca_logo.gif"></a>
+	</div>
+
+	<div class="form-wrapper">
+		<div class="signup-wrapper">
+			<h1>Get Started With PinkCherry Wholesale<br /></h1>
+			<p>Welcome to PinkCherry Wholesale, your one-stop shop for the latest sex toys and sexy lingerie, where you can take advantage of our expanding selection of over 100 brands and 15,000 products. Our easy to use, online store provides real-time inventory and details each product with in-house pictures and thorough product descriptions to help you shop. 
+			
+			 <br><br>
+			 To quality for Wholesale, we require a copy of your valid Business Licence. Please scan or photograph your registration, and e-mail it to <a href="mailto:sophia@pinkcherry.com">sophia@pinkcherry.com</a>
+			 <br/><br>
+			 Once we review your information and, if your account is approved, an email will be sent to you with login instructions. The login will give you access to pricing and the ability to place orders. 
+			 <br><br>
+
+			Please note: This site is for businesses only. If you are purchasing for personal use, you must buy from our retail website by clicking <a href="http://www.pinkcherry.ca">here</a>.
+
+</p>
+			<form name="myForm" method="Post">
+				<div class="w_30">
+					<label for="fname">First Name *</label>
+					<input type="text" class="textbox" id="fname" name="firstname">
+				</div>
+
+				<div class="w_70">
+					<label for="lname">Last Name *</label>
+					<input type="text" class="textbox" id="lname" name="lastname">
+				</div>
+
+				<div style="clear:both"></div>
+
+				<div class="full">
+					<label for="company">Company</label>
+					<input type="text" class="textbox" id="company" name="company">
+				</div>
+
+
+				<div class="w_60">
+					<label for="address">Business Address (No PO Boxes) *</label>
+					<input type="text" class="textbox textbox_full" id="address" name="address1">
+				</div>
+
+				<div class="w_40">
+					<label for="apt">Apt or Suite</label>
+					<input type="text" class="textbox textbox_short" id="apt" name="address2">
+				</div>
+
+				<div style="clear:both"></div>
+
+				<div class="full">
+					<label for="country">Country</label>
+
+				      <input name="country" type="hidden" value="CA" />
+					Canada (<a href="http://www.pinkcherrywholesale.com/signup">US click here</a>)
+				</div>
+
+			
+				<div class="w_30">
+					<label for="city">City *</label>
+					<input type="text" class="textbox" id="city" name="City">
+				</div>
+				<div class="w_30">
+					<label for="state">Province *</label>
+
+					<select class="textbox" id="province" name="Province">
+<option value="">Select</option>
+						<option value="AB">Alberta</option>
+<option value="BC">British Columbia</option>
+<option value="MB">Manitoba</option>
+<option value="NL">Newfoundland and Labrador</option>
+<option value="NB">New Brunswick</option>
+<option value="NS">Nova Scotia</option>
+<option value="NT">Northwest Territories</option>
+<option value="NU">Nunavut</option>
+<option value="ON">Ontario</option>
+<option value="PE">Prince Edward Island</option>
+<option value="QC">Quebec</option>
+<option value="SK">Saskatchewan</option>
+<option value="YT">Yukon Territory</option>
+
+					</select>
+				</div>
+				<div class="w_40">
+					<label for="postalcode">Postal Code *</label>
+					<input type="text" class="textbox textbox_short" id="postalcode" name="postalcode">
+				</div>
+
+				<div style="clear:both"></div>
+
+			
+				<div class="w_30">
+					<label for="bphone">Business Phone *</label>
+					<input type="text" class="textbox" id="bphone" name="phone">
+				</div>
+
+				<div class="w_70">
+					<label for="mphone">Mobile Phone *</label>
+					<input type="text" class="textbox" id="mphone" name="mphone">
+				</div>
+
+
+				<div style="clear:both"></div>
+
+				<div class="full">
+					<label for="email">Email *</label>
+					<input type="text" class="textbox textbox_full" id="email" name="email">
+				</div>
+
+
+				<div class="full">
+					<label for="bustype">Type of Business *</label>
+					<select size="1" name="bustype" id="bustype" class="textbox"> 
+<option value="">Select Type</option> 
+<option value="2">Adult Storefront</option> 
+<option value="4">Adult Video Storefront</option> 
+<option value="3">Adult Website</option> 
+<option value="5">Home Party</option> 
+<option value="1">Lingerie Storefront</option> 
+<option value="7">Lingerie Website</option> 
+<option value="6">Smoke Storefront</option> 
+<option value="10">Mainstream Storefront</option> 
+<option value="11">Mainstream Website</option> 
+<option value="9">Other, Put in Comments</option> 
+</select>
+				</div>
+
+				<div class="full">
+					<label for="website">Website Address</label>
+(mandatory for all online sellers, including third party sites)
+					<input type="text" class="textbox textbox_full" id="website" name="website">
+				</div>
+
+				<div class="full">
+					<label for="comment">Comments</label>
+					<textarea class="textbox textbox_full" id="comment" rows="4" name="comments"></textarea>
+				</div>
+
+                                <div class="full">
+					<div class="g-recaptcha" data-sitekey="6LdiYgkTAAAAADFxcFsFZeYOlsuFiF6jrTbVO-WJ" style="padding-bottom:10px"></div>
+				</div>
+
+				<div style="clear:both"></div>
+
+				<input type="submit" value="Submit" name="submit_button" class="button" id="signup_submit">
+                                
+                                 <div style="text-align:center;width:334px;display:none;" id="processing">
+                                      <img src="https://www.pinkcherrywholesale.ca/apps/reviews/images/opc-ajax-loader.gif"> <span style="color:#f00">Processing, please wait...</span>
+                                </div>
+				<div style="clear:both"></div>
+
+                                <input type="hidden" name="category" value="3">
+			</form>
+		</div>
+	</div></div>            </div>
+</body>
+</html>
